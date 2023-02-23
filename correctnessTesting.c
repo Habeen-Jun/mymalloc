@@ -59,13 +59,25 @@ void *testcase1(int num_object, int size) {
     printf("Successfully done");
 }
 
-void *testcase2(void *pointer) {
-    // free() deallocates memory
+void *testcase2() {
+    // 1) free() deallocates memory
+    // 2) After freeing the data chunck, check if the "is_free" attribute of 
+    //    header set to 1.
+    // 3) Write a program that checks "is_free" header attribute of freed chunk. 
+    void* test = malloc(100);
+    free(test);
+
+    // getting the chunk header from data pointer.
+    header *curr = (header*) ((void*) test - sizeof(header));
+
+    if (curr->is_free == 1) {
+        printf("%s\n", "test case 2 passed");
+    }
     
 }
 
 
 void main() {
-    testcase1(3, 10);
-
+    // testcase1(3, 10);
+    testcase2();
 }

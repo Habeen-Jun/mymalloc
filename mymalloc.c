@@ -6,11 +6,11 @@
 #define MEMORY_SIZE 4096
 static char memory[MEMORY_SIZE];
 
-typedef struct header {
-    int size;
-    int is_free;
-    struct header *next;
-} header;
+// typedef struct header {
+//     int size;
+//     int is_free;
+//     struct header *next;
+// } header;
 
 void* mymalloc(size_t size, char *file, int line)  {
     header *head = (header*) memory; 
