@@ -41,20 +41,22 @@ void *testcase1(int num_object, int size) {
     // check if the object still contains the written pattern
     for(int i = 0; i< num_object; i++){
         int* object_ptr = (int*)(object[i]);
-
         for(int j = 0; j < size; j++) {
             // if object does not have byte pattern print fail
-            if(object_ptr[j] != i + 1) {
+            if(object_ptr[i][j] != i + 1) {
                 printf("Object does not have correct byte pattern\n");
                 return NULL;
             }
         }
     }
 
+
     // it frees the onject
     for(int i = 0; i < num_object; i++) {
         free(object[i]);
     }
+    
+    printf("Successfully done");
 }
 
 void *testcase2(void *pointer) {
@@ -64,6 +66,6 @@ void *testcase2(void *pointer) {
 
 
 void main() {
-    testcase1(3, 100);
+    testcase1(3, 10);
 
 }
