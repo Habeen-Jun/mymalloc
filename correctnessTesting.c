@@ -40,6 +40,7 @@ void *testcase1(int num_object, int size) {
 
     // check if the object still contains the written pattern
     for(int i = 0; i< num_object; i++){
+        int* object_ptr = (int*)(object[i]);
         for(int j = 0; j < size; j++) {
             // if object does not have byte pattern print fail
             if(*((unsigned char*)object[i]+j) != i + 1) {
@@ -54,8 +55,8 @@ void *testcase1(int num_object, int size) {
     for(int i = 0; i < num_object; i++) {
         free(object[i]);
     }
-
-    printf("Successfully done\n");
+    
+    printf("Successfully done");
 }
 
 void *testcase2() {
@@ -71,13 +72,14 @@ void *testcase2() {
 
     if (curr->is_free == 1) {
         printf("%s\n", "test case 2 passed");
+    } else {
+        printf("%s\n", "test case 2 failed");
     }
     
-
 }
 
 
 void main() {
-    // testcase1(3, 10);
+    testcase1(3, 10);
     testcase2();
 }
