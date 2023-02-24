@@ -56,7 +56,7 @@ void *testcase1(int num_object, int size) {
         free(object[i]);
     }
     
-    printf("Successfully done");
+    printf("Successfully done\n");
 }
 
 void *testcase2() {
@@ -71,9 +71,9 @@ void *testcase2() {
     header *curr = (header*) ((void*) test - sizeof(header));
 
     if (curr->is_free == 1) {
-        printf("%s\n", "test case 2 passed");
+        printf("%s\n", "test case 2 passed\n");
     } else {
-        printf("%s\n", "test case 2 failed");
+        printf("%s\n", "test case 2 failed\n");
     }
     
 }
